@@ -1,105 +1,100 @@
-body {
-  background-color: black;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Opne Sans", "Helvetica Neue", sans-serif;
+@import "reset";
 
-}
-li {
-  list-style: none;
+body {
+  background: #dce6d1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
 .phone {
-  //width: 100vw;
-  //height: 100vh;
-  padding: 10px;
+  background-color: black;
+  border-radius: 50px;
+  height: 95%;
+  width: 420px;
+  margin: 0 auto;
+  padding: 50px 20px;
+  box-sizing: border-box;
+}
 
-  .header {
-    .header__list {
-      padding: 0;
-      display: flex;
-      flex-wrap: nowrap;
-      gap: 10px;
-      .header__list-item {
-        padding: 10px;
-        border: 1px solid white;
-        border-radius: 50px;
-        color: white;
-        background-color: black;
-        white-space: nowrap;
-        &.on {
-          background-color: white;
-          color: black;
-        }
-      }
+.header {
+  overflow-x: scroll;
+  .header__list {
+    display: flex;
+    gap: 10px;
+    color: white;
+    width: max-content;
+    .header__list-item {
+      border: 1px solid rgba($color: #fff, $alpha: 0.5);
+      padding: 10px;
+      border-radius: 20px;
+    }
+    .header__list-item--inverted {
+      color: black;
+      background-color: white;
     }
   }
-  .cards {
-    display: grid;
-    height: 100vh;
-    gap: 10px;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: repeat(auto-fill, 1fr);
-    .cards__card {
-      padding: 25px;
-      border-radius: 25px;
+}
+
+.cards {
+  margin: 20px 0px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+
+  .cards__card {
+    background-color: white;
+    padding: 10px;
+    border-radius: 15px;
+    display: flex;
+    gap: 40px;
+    flex-direction: column;
+    justify-content: space-between;
+    .card__title {
+      font-size: 28px;
+    }
+    .card__footer {
+      font-size: 14px;
       display: flex;
-      flex-direction: column;
       justify-content: space-between;
-      background-color: #fff;
-      &:nth-child(3n) {
-        grid-column: span 2;
+      align-items: center;
+      span {
+        padding: 5px 10px;
+        border-radius: 20px;
+        border: 1px solid black;
       }
-      &:nth-child(1) {
-        background-color: #2A2D33;
+      .price {
+        background-color: rgb(255,221, 44);
+      }
+      .length {
+        background-color: white;
+      }
+    }
+    &:first-child {
+      background-color: #292D33;
+      border: 1px solid white;
+      .card__title {
         color: white;
       }
-      &:nth-child(2) {
-        background-color: #F6F4F0;
-        .price {
-          background-color: #DAC647;
-        }
-      }
-      &:nth-child(3) {
-        background-color: #FAFEC7;
-        .price {
-          background-color: #CFA8D1;
-        }
-      }
-      &:nth-child(4) {
-        background-color: #B3A1F6;
-        .price {
-          background-color: #DAC647;
-        }
-      }
-      &:nth-child(5) {
-        background-color: #FED3D3;
-        .price {
-          background-color: #CFA8D1;
-        }
-      }
-      &:nth-child(6) {
-        background-color: #D2FEDE;
-        .price {
-          background-color: #DAC647;
-        }
-      }
-      .card__title {
-
-      }
-      .card__footer {
-        display: flex;
-        justify-content: space-between;
-        .price {
-          border: 1px solid black;
-          border-radius: 25px;
-          padding: 10px;
-        }
-        .length {
-          padding: 10px;
-          border: 1px solid black;
-          border-radius: 25px;
-          background-color: white;
-        }
-      }
+    }
+    &:nth-child(2) {
+      background-color: #f5f4ef;
+    }
+    &:nth-child(3) {
+      background-color: #F8Fcb5;
+    }
+    &:nth-child(4) {
+      background-color: #b19ff6;
+    }
+    &:nth-child(5) {
+      background-color: #fed3d3;
+    }
+    &:nth-child(6) {
+      background-color: #d0fedf;
+    }
+    &:nth-child(3n) {
+      grid-column: span 2;
     }
   }
 }
