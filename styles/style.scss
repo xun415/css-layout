@@ -1,5 +1,7 @@
 @import "reset";
 
+$gray: #c6caca;
+
 body {
   background: #bcbfbf;
   display: flex;
@@ -8,96 +10,102 @@ body {
   height: 100vh;
 }
 .phone {
-  height: 100%;
-  width: 100%;
+  width: 480px;
+  height: 90%;
+  border-radius: 10px;
+  background-color: $gray;
+  box-shadow: 5px 10px 10px rgba($color: black, $alpha: 0.5);
 }
 
 .header {
+  padding: 50px 15px 20px 15px;
   display: flex;
   justify-content: space-between;
-  padding: 20px;
+  align-items: center;
+  .header__title {
+    text-transform: uppercase;
+    font-weight: bold;
+  }
 }
-
 .total {
   background-color: black;
-  color: white;
-  padding: 30px 20px;
+  padding: 30px 15px;
+  color: $gray;
   display: flex;
   flex-direction: column;
-  align-items: end;
+  align-items: flex-end;
   gap: 10px;
+    font-weight: bold;
   .total__price {
-    font-size: 36px;
+    font-size: 22px;
+  }
+  .total__subtitle {
+    font-size: 14px;
   }
 }
-
 .items {
+  background-color: #c6caca;
   display: flex;
-  flex-wrap: wrap;
-  //flex-direction: column;
-  gap: 20px;
-}
-
-.item {
-  min-width: 405px;
-  position: relative;
-  flex: 1 0 300px;
-  border: 2px solid black;
-  display: grid;
-  grid-template: minmax(100px, 35%) minmax(120px, 45%) minmax(80px, 20%) /repeat(4, 1fr);
-
-  .item__info {
-    grid-row: span 2;
-    grid-column: span 4;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-
-    .item__info-col {
-      padding: 20px;
-      display: flex;
-      justify-content: start;
-      flex-direction: column;
-      &:nth-child(2) {
-        align-items: end;
+  flex-direction: column;
+  gap: 15px;
+  .item {
+    position: relative;
+    border-top: 5px solid black;
+    .item__info {
+      background-color: #d7dbdb;
+      padding: 30px 15px;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      font-weight: bold;
+      .item__info-col {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        &:nth-child(2) {
+          align-items: end;
+        }
       }
       .item__title {
-        font-size: 48px;
-        font-weight: 800;
+        font-size: 42px;
+      }
+      .item__subtitle {
+        font-size: 14px;
       }
       .item__total-price {
-        font-size: 24px;
+        font-size: 34px;
+      }
+      .item__piece-price {
+        font-size: 18px;
       }
     }
-
   }
-  .item__specs {
-    grid-row: span 1;
-    grid-column: span 4;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-  }
+}
 
+.item__specs {
+  background-color: #d7dbdb;
+  border-top: 5px solid black;
+  border-bottom: 5px solid black;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 125px);
   .spec {
-    padding: 20px;
+    padding: 25px;
     display: flex;
-    flex-direction: column;
-    border-top: 2px solid black;
+    font-weight: bold;
 
-    //border-bottom: none;
-    &:nth-child(2) {
-      border-left: 2px solid black;
-      grid-column: span 3;
+    flex-direction: column;
+    justify-content: center;
+    &:last-child {
+      border-left: 5px solid black;
     }
-    //border: 1px solid black;
   }
-  .item__photo {
-    position: absolute;
-    bottom: 0px;
-    right: 20px;
-    border: 2px solid black;
-    border-bottom: none;
-    width: 200px;
-    height: 220px;
-    object-fit: cover;
-  }
+}
+
+.item__photo {
+  position: absolute;
+  width: 30%;
+  height: 60%;
+  border: 5px solid black;
+  right: 15px;
+  bottom: 2.5px;
+  object-fit: cover;
 }
