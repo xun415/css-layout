@@ -1,122 +1,75 @@
 @import "reset";
 
-$borderColor: rgba(0,0,0,0.4);
-$borderWidth: 2px;
-$contentBgColor: #FFFFFF;
+
 
 body {
   height: 100vh;
+  width: 100vw;
   display: grid;
-  grid-template-rows: 1fr 10fr;
-}
+  grid-template-columns: 75px 1fr 75px;
+  grid-template-rows: 75px 1fr 75px;
 
-.header {
-  .header__nav {
-    ul {
-      background-color: $borderColor;
+  .bar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 500;
+    font-size: 18px;
+    text-transform: uppercase;
+    &:first-child, &:last-child {
+      grid-column: span 3;
+    }
+    &:nth-child(2) span {
+      transform: rotateZ(-90deg);
+    }
+    &:nth-child(4) span {
+      transform: rotateZ(90deg);
+    }
+  }
+  .main {
+    border: 2px solid black;
+    overflow-y: scroll;
+    box-sizing: border-box;
+    padding:0px 30px 30px 30px;
+    .main__nav ul{
       display: grid;
-      grid-template-columns: repeat(5, 1fr) 1fr repeat(5, 1fr);
-      gap: $borderWidth;
-      .header__tab {
-        background-color: white;
-        padding: 20px 0px;
+      .main__nav-item {
+        padding: 10px;
         text-align: center;
-        font-weight: 300;
-        font-size: 14px;
-        &:nth-child(6) {
-          text-transform: uppercase;
-          font-weight: bold;
-          font-size: 22px;
-        }
+        text-transform: uppercase;
+        font-size: 22px;
+        font-weight: 600;
+        border-bottom: 2px solid black;
       }
     }
   }
-  .header__breadcrumbs {
-    border-bottom: $borderWidth solid $borderColor;
-    border-top: $borderWidth solid $borderColor;
-    padding: 10px 0px 10px 50px;
-    //padding-left: 50px;
-    font-size: 14px;
-    .header__crumb {
-      font-weight: 500;
-      &:last-child {
-        opacity: 0.5;
-      }
-    }
-  }
-}
 
-.product {
-  display: grid;
-  gap: $borderWidth;
-  grid-template-columns: 1fr 1.3fr;
-  background-color: $borderColor;
-  .product__img {
-    background-image: url("https://source.unsplash.com/random");
-    background-size: cover;
+  .filter {
+    margin: 30px 0px;
+    display: flex;
+    justify-content: space-between;
+    text-transform: uppercase;
+    font-weight: 600;
+    .filter__types {
+      display: flex;
+      gap: 10px;
+      color: gray;
+    }
+    .filter__name--selected {
+      color: black;
+    }
   }
-  .product__info {
+  .projects {
     display: grid;
-    grid-template-rows: 1.5fr 1fr;
-    gap: $borderWidth;
-    .product__header {
-      background-color: white;
+    gap: 30px;
+    grid-template-columns: repeat(auto-fill, minmax(390px, 1fr));
+    .project {
       display: flex;
       flex-direction: column;
-      justify-content: center;
-      padding: 0px 50px;
-      gap: 20px;
-      font-weight: 500;
-      text-transform: uppercase;
-      .product__category {
-        font-size: 22px;
-      }
-      .product__title {
-        font-size: 44px;
-      }
-      .product__add-to-cart {
-        margin-top: 20px;
-        display: flex;
-        gap: 60px;
-        .product__price {
-          font-size: 36px;
-        }
-        .product__qty {
-          font-size: 36px;
-          display: flex;
-          gap: 10px;
-          .product__minus {
-            opacity: 0.5;
-          }
-        }
-      }
-    }
-    .product__footer {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: $borderWidth;
-      & > div {
-        background-color: white;
-      }
-      .product__description p {
-        width: 70%;
-        font-size: 14px;
-        margin: 0 auto;
-        padding: 25px 0px;
-      }
-      .product__faq {
-        padding: 50px;
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-        .product__question {
-          border-bottom: $borderWidth solid $borderColor;
-          display: flex;
-          justify-content: space-between;
-          text-transform: uppercase;
-          font-weight: 600;
-          padding-bottom: 10px;
-        }
+      gap: 10px;
+      font-weight: 600;
+      .project__img {
+        width: 100%;
       }
     }
   }
